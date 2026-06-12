@@ -14,12 +14,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 
-vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#a9dc76", bg = "NONE" })  -- folder names, no dark bg
-vim.api.nvim_set_hl(0, "SnacksPickerSelected", { bg = "#4a4a4a", bold = true })
-
 vim.opt.swapfile = false
-
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#221F22" })
 
 vim.g.root_spec = {"cwd"}
 
@@ -36,3 +31,12 @@ vim.lsp.config("lua_ls", {
     },
   },
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "neo-tree",
+  callback = function()
+    vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { link = "NeoTreeGitAdded" })
+  end,
+})
+
+vim.g.snacks_explorer = false
