@@ -10,6 +10,11 @@ else
   vim.opt.clipboard = "unnamedplus"
 end
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.opt.fillchars = { eob = "~" }
+
 vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -24,17 +29,7 @@ vim.g.root_spec = { "cwd" }
 
 vim.opt.autowrite = true
 vim.opt.autowriteall = true
-
-vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      workspace = {
-        checkThirdParty = false,
-        ignoreDir = { ".git", "node_modules", "target" },
-      },
-    },
-  },
-})
+vim.g.autoformat = true
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "neo-tree",

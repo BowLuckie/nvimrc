@@ -7,6 +7,10 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    keys = {
+      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
+      { "<leader>E", "<cmd>Neotree toggle buffers<cr>", desc = "Toggle Neotree (Buffers)" },
+    },
     opts = {
       sources = { "filesystem", "buffers", "git_status" },
       open_files_do_not_replace_types = { "terminal", "trouble", "qf", "outline" },
@@ -47,22 +51,12 @@ return {
         git_status = {
           symbols = {
             unstaged = "",
-            staged = "󰱒",
-            untracked = "󰐕",
+            staged = "S",
+            untracked = "N",
+            modified = "M",
           },
         },
       },
-    },
-  },
-  {
-    "folke/snacks.nvim",
-    opts = {
-      explorer = { enabled = false },
-    },
-
-    keys = {
-      { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neotree" },
-      { "<leader>E", "<cmd>Neotree toggle buffers<cr>", desc = "Toggle Neotree (Buffers)" },
     },
   },
 }

@@ -6,3 +6,14 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+--
+
+local aliases = { "CountLines", "CL", "LC" }
+
+for _, name in ipairs(aliases) do
+  vim.api.nvim_create_user_command(name, function(opts)
+    local ext = opts.args
+    local result = vim.fn.system(string.format("find . -name '*.%s' -exec cat {} + | wc -l", ext))
+    vim.notify(string.format("*.%s lines: %s", ext, vim.trim(result)), vim.log.levels.INFO)
+  end, { nargs = 1 })
+end
