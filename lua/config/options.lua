@@ -13,6 +13,12 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.wrap = false
+
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildoptions = "pum"
+
 vim.opt.fillchars = { eob = "~" }
 
 vim.opt.termguicolors = true
@@ -24,12 +30,15 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 
 vim.opt.swapfile = false
+vim.opt.undofile = true
 
 vim.g.root_spec = { "cwd" }
 
 vim.opt.autowrite = true
 vim.opt.autowriteall = true
 vim.g.autoformat = true
+
+vim.opt.foldlevelstart = 99
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "neo-tree",
@@ -41,3 +50,10 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.g.snacks_explorer = false
 
 vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Explorer (NeoTree)" })
+
+-- shim for telescope previewer compat with nvim-treesitter main branch
+if not vim.treesitter.language.ft_to_lang then
+  vim.treesitter.language.ft_to_lang = function(ft)
+    return vim.treesitter.language.get_lang(ft) or ft
+  end
+end

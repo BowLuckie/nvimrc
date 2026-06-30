@@ -17,3 +17,14 @@ for _, name in ipairs(aliases) do
     vim.notify(string.format("*.%s lines: %s", ext, vim.trim(result)), vim.log.levels.INFO)
   end, { nargs = 1 })
 end
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.cmd("echo 'yanked'")
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 200,
+      on_visual = true,
+    })
+  end,
+})

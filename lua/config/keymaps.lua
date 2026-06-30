@@ -279,7 +279,7 @@ end, { desc = "which_key_ignore" })
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
-vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "Other Window" })
+vim.keymap.set("n", "<leader>ww", "<C-W>w", { desc = "Other Window" })
 Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
 Snacks.toggle.zen():map("<leader>uz")
 
