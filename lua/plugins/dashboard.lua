@@ -51,9 +51,9 @@ return {
           icon = " ",
           title = "Recent Files",
           section = "recent_files",
-          cwd = true,
           indent = 2,
           padding = 1,
+          cwd = true,
         },
         { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
         {
@@ -67,6 +67,21 @@ return {
           cmd = "git status --short --branch --renames",
           height = 5,
           padding = 1,
+          ttl = 5 * 60,
+          indent = 3,
+        },
+        {
+          pane = 2,
+          icon = "󰉋",
+          title = "files",
+          section = "terminal",
+          enabled = function()
+            local root = Snacks.git.get_root()
+            return root == nil
+          end,
+          cmd = "eza --icons --group-directories-first --git; printf '\n%.0s' {1..7} ",
+          height = 5,
+          padding = 0,
           ttl = 5 * 60,
           indent = 3,
         },

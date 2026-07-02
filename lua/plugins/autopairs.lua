@@ -4,4 +4,5 @@ return {
     event = "InsertEnter",
     opts = {},
   },
+  -- { "HiPhish/rainbow-delimiters.nvim" },
 }

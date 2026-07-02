@@ -51,7 +51,14 @@ return {
           },
           keys = {
             { "gd", vim.lsp.buf.definition, desc = "Goto Definition" },
-            { "gr", vim.lsp.buf.references, desc = "References", nowait = true },
+            {
+              "gr",
+              function()
+                require("snacks").picker.lsp_references()
+              end,
+              desc = "References",
+              nowait = true,
+            },
             { "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
             { "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
             { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },

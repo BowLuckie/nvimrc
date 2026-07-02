@@ -1,6 +1,13 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, lhs, rhs, options)
+end
 
 vim.keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", { desc = "Debug: Continue" })
 
@@ -12,10 +19,6 @@ vim.keymap.set("n", "<leader>gg", function()
   end
   Snacks.lazygit()
 end, { desc = "Lazygit (root)" })
-
-vim.keymap.set("i", "<A-j>", "<Down>", { desc = "Move down" })
-vim.keymap.set("i", "<A-k>", "<Up>", { desc = "Move up" })
-vim.keymap.set("i", "<A-l>", "<Right>", { desc = "Move right" })
 
 vim.keymap.set("n", "<A-J>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
 vim.keymap.set("n", "<A-K>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
@@ -32,6 +35,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+
+map("n", "<leader>'", function()
+  require("core.utils.toggle").surround_quotes()
+end, { desc = "Toggle quotes cur word" })
 
 -- f4
 

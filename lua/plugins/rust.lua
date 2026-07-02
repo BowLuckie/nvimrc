@@ -13,6 +13,9 @@ return {
         vim.keymap.set("n", "<leader>dr", function()
           vim.cmd.RustLsp("debuggables")
         end, { desc = "Rust Debuggables", buffer = bufnr })
+        vim.keymap.set("n", "<leader>rr", function()
+          vim.cmd.RustLsp("runnables")
+        end, { desc = "Rust Runnables", buffer = bufnr })
       end,
       default_settings = {
         ["rust-analyzer"] = {

@@ -45,7 +45,13 @@ return {
       vim.api.nvim_set_hl(0, "BlinkCmpKindKeyword", { fg = palette.bright_red })
       vim.api.nvim_set_hl(0, "BlinkCmpKindClass", { fg = palette.bright_yellow })
       vim.api.nvim_set_hl(0, "BlinkCmpKindModule", { fg = palette.bright_aqua })
-      vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = palette.bright_purple })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindField", { fg = palette.bright_blue })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindProperty", { fg = palette.bright_blue })
+      vim.api.nvim_set_hl(0, "BlinkCmpKindText", { fg = palette.light1 })
+      vim.api.nvim_set_hl(0, "BlinkCmpLabel", { fg = palette.light1 })
+      vim.api.nvim_set_hl(0, "BlinkCmpLabelMatch", { fg = palette.bright_orange, bold = true })
+      vim.api.nvim_set_hl(0, "BlinkCmpLabelDetail", { fg = palette.dark4 })
+      vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = palette.dark4 })
 
       vim.api.nvim_set_hl(0, "SignColumn", { bg = palette.dark0 })
 
